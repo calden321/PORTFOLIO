@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Golden</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Projects Page Specific Styles */
+        .projects-section {
+            background: radial-gradient(circle at center, #0a0a1a, #12122a);
+            padding: 8rem 9% 5rem;
+            min-height: 100vh;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+        
+        .project-card {
+            background: rgba(25, 25, 112, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px #264dfc;
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #191970, #2a2aa5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle,#264dfc 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        .project-image i {
+            font-size: 5rem;
+            color: white;
+            z-index: 2;
+        }
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #264dfc;
+        }
+        
+        .project-content p {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        
+.tech-tag {
+    background: rgba(25, 25, 112, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    border: 1px solid #2a2aa5;
+    color: white; /* Added white font color */
+}
+        
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .live-demo {
+            background: #264dfc;
+            color: white;
+        }
+        
+        .source-code {
+            border: 1px solid #191970;
+            color: #264dfc;
+        }
+        
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(25, 25, 112, 0.3);
+        }
+        
+        .source-code:hover {
+            background: rgba(25, 25, 112, 0.1);
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Calden</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="projects-section">
+        <h1 class="heading">My <span>Projects</span></h1>
+        
+        <div class="projects-container">
+            <!-- Peer Tutoring App -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Peer Tutoring Mobile App</h3>
+                    <p>An Android application developed to connect students for peer-to-peer tutoring sessions.●	Features include tutor availability scheduling, AI chatbot, data analytics, resource upload/download, and a dual rating system</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link live-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link source-code">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expense Tracker -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Expense Tracker</h3>
+                    <p>A financial management app with budgeting analytics and long-term expense tracking. ●	Features include Detailed expense logging with date tracking and category management, Long-term liability tracking (e.g., mortgages, subscriptions), Budget forecasting with data-driven insights, Interactive dashboards for monthly/yearly expense visualization (charts, trend analysis).</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">CRUD Operations</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link live-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link source-code">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more project cards below as needed -->
+            <!--
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-[icon-name]"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Project Title</h3>
+                    <p>Project description</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Technology</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link live-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link source-code">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+</body>
+</html>

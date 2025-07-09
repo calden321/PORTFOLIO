@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Golden</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Education Page Specific Styles */
+        .education-section {
+            background: linear-gradient(to bottom, #0a0a1a, #12122a);
+            padding: 8rem 9% 5rem;
+            min-height: 100vh;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #264dfc;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+        
+        .degree-container {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .degree-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #191970;
+            border: 4px solid #264dfc;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .degree-content {
+            padding: 20px 30px;
+            background: rgba(25, 25, 112, 0.2);
+            border-radius: 15px;
+            border-left: 4px solid #264dfc;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .degree-content h3 {
+            color:#264dfc;
+            margin-bottom: 1rem;
+        }
+        
+        .degree-content p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+        }
+        
+        .certificates-section {
+            margin-top: 6rem;
+            text-align: center;
+        }
+        
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .certificate-card {
+            background: rgba(25, 25, 112, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #264dfc;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(25, 25, 112, 0.4);
+        }
+        
+        .certificate-card i {
+            font-size: 3rem;
+            color: #264dfc;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .degree-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .degree-container::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Calden</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html" class="active">Education</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="education-section">
+        <h1 class="heading">My <span>Education</span></h1>
+        
+        <div class="timeline">
+            <div class="degree-container left">
+                <div class="degree-content">
+                    <h3><i class="fas fa-graduation-cap"></i> 2023 - 2025</h3>
+                    <h2>Bachelor of Information Communication and Technology</h2>
+                    <p>A comprehensive program covering software development, networking, and information systems. Specialized in software engineering with hands-on projects in web and mobile application development.</p>
+                </div>
+            </div>
+            
+            <!-- Add more timeline entries here if needed -->
+            <!-- <div class="degree-container right">
+                <div class="degree-content">
+                    <h3><i class="fas fa-graduation-cap"></i> Year</h3>
+                    <h2>Degree Name</h2>
+                    <p>Description</p>
+                </div>
+            </div> -->
+        </div>
+        
+        <div class="certificates-section">
+            <h2 class="sub-heading">My <span>Certificates</span></h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificate 1</h3>
+                    <p>(Details to be added)</p>
+                </div>
+                <div class="certificate-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificate 2</h3>
+                    <p>(Details to be added)</p>
+                </div>
+                <div class="certificate-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificate 3</h3>
+                    <p>(Details to be added)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

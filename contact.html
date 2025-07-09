@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Golden</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-section {
+            background: linear-gradient(135deg, #0a0a1a 0%, #12122a 100%);
+            padding: 8rem 9% 5rem;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
+            animation: float 15s infinite linear;
+            z-index: 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .contact-info h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            position: relative;
+        }
+        
+        .contact-info h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #264dfc;
+            border-radius: 2px;
+        }
+        
+        .contact-info p {
+            font-size: 1.6rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .info-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            background: rgba(25, 25, 112, 0.2);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            width: 100%;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .info-box:hover {
+            transform: translateX(10px);
+            border-left: 4px solid #264dfc;
+            box-shadow: 0 5px 15px rgba(25, 25, 112, 0.3);
+        }
+        
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(9, 9, 192, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .info-icon i {
+            font-size: 2.5rem;
+            color: #264dfc;
+        }
+        
+        .info-text h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-text a, .info-text span {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .info-text a:hover {
+            color: #264dfc;
+        }
+        
+  
+        
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(25, 25, 112, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid #264dfc;
+        }
+        
+        .social-links a:hover {
+            background: #264dfc;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(25, 25, 112, 0.3);
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-box {
+                padding: 1rem;
+            }
+            
+            .info-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Calden</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind or want to discuss potential opportunities? Feel free to reach out - I'd love to hear from you!</p>
+                
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Email</h3>
+                        <a href="mailto:your.email@example.com">caldenrad0208@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Phone</h3>
+                        <a href="tel:+1234567890">(+27) 068 2711 421</a>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Location</h3>
+                        <span>Durban, South Africa</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/calden-radhakrishna-2b3757372/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/calden321" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
