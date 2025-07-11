@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Calden</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Expense Tracker Page Specific Styles */
+        .expense-tracker-section {
+            background: radial-gradient(circle at center, #0a0a1a, #12122a);
+            padding: 8rem 9% 5rem;
+            min-height: 100vh;
+        }
+        
+        .project-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-header h1 {
+            font-size: 3.5rem;
+            color: #264dfc;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .project-header p {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        
+        .screenshot-card {
+            background: rgba(25, 25, 112, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px #264dfc;
+        }
+        
+        .screenshot-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid rgba(25, 25, 112, 0.5);
+        }
+        
+        .screenshot-caption {
+            padding: 2rem;
+        }
+        
+        .screenshot-caption h3 {
+            font-size: 2rem;
+            color: #264dfc;
+            margin-bottom: 1rem;
+        }
+        
+        .screenshot-caption p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        .features-section {
+            background: rgba(25, 25, 112, 0.15);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #264dfc;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(25, 25, 112, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(38, 77, 252, 0.2);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: #264dfc;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        .tech-stack {
+            margin-bottom: 5rem;
+        }
+        
+        .tech-stack h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #264dfc;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .tech-icon {
+            text-align: center;
+            background: rgba(25, 25, 112, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.3s ease;
+            width: 150px;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(38, 77, 252, 0.2);
+        }
+        
+        .tech-icon i {
+            font-size: 3.5rem;
+            color: #264dfc;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-icon p {
+            font-size: 1.4rem;
+            color: white;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            background: #264dfc;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(38, 77, 252, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .features-section {
+                padding: 3rem;
+            }
+            
+            .tech-icon {
+                width: 120px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Calden</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="expense-tracker-section">
+        <div class="project-showcase">
+            <div class="project-header">
+                <h1>Expense Tracker</h1>
+                <p>A comprehensive financial management application with budgeting analytics and long-term expense tracking capabilities, designed to give you complete control over your finances.</p>
+            </div>
+            
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <img src="1.jpg" alt="Expense Tracker Landing Page" class="screenshot-img">
+                    <div class="screenshot-caption">
+                        <h3>Welcome Screen</h3>
+                        <p>Clean landing page with options for new and existing users</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="2.jpg" alt="Registration Page" class="screenshot-img">
+                    <div class="screenshot-caption">
+                        <h3>Registration</h3>
+                        <p>Simple account creation process</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="3.jpg" alt="Login Page" class="screenshot-img">
+                    <div class="screenshot-caption">
+                        <h3>Login</h3>
+                        <p>Secure access to your financial dashboard</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="4.jpg" alt="Dashboard" class="screenshot-img">
+                    <div class="screenshot-caption">
+                        <h3>Dashboard</h3>
+                        <p>Comprehensive overview of your expenses</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="5.jpg" alt="Add Expense" class="screenshot-img">
+                    <div class="screenshot-caption">
+                        <h3>Add Expense</h3>
+                        <p>Quickly log new expenses or liabilities</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="6.jpg" alt="Long Term Liability" class="screenshot-img">
+                    <div class="screenshot-caption">
+                        <h3>Long-Term Tracking</h3>
+                        <p>Manage mortgages, loans, and subscriptions</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-section">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Budget Analytics</h3>
+                        <p>Data-driven insights and forecasting to help you plan your finances effectively.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Expense Tracking</h3>
+                        <p>Detailed logging with date tracking and category management for all transactions.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Liability Management</h3>
+                        <p>Track long-term commitments like mortgages and subscriptions with end dates.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Data Visualization</h3>
+                        <p>Interactive dashboards with charts and graphs for monthly/yearly expense analysis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <h2>Technology Stack</h2>
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                        <p>Python</p>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                        <p>SQLite</p>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>Data Visualization</p>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-cogs"></i>
+                        <p>CRUD Operations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <center>
+                <a href="projects.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+            </center>
+        </div>
+    </section>
+</body>
+</html>

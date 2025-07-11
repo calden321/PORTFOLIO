@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Tutoring App | Calden</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Peer Tutoring Page Specific Styles */
+        .peer-tutoring-section {
+            background: radial-gradient(circle at center, #0a0a1a, #12122a);
+            padding: 8rem 9% 5rem;
+            min-height: 100vh;
+        }
+        
+        .project-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-header h1 {
+            font-size: 3.5rem;
+            color: #264dfc;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .project-header p {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .flow-section {
+            margin-bottom: 5rem;
+        }
+        
+        .flow-section h2 {
+            font-size: 2.8rem;
+            color: #264dfc;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        
+        .screenshot-card {
+            background: rgba(25, 25, 112, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px #264dfc;
+        }
+        
+        .screenshot-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid rgba(25, 25, 112, 0.5);
+        }
+        
+        .screenshot-caption {
+            padding: 2rem;
+        }
+        
+        .screenshot-caption h3 {
+            font-size: 2rem;
+            color: #264dfc;
+            margin-bottom: 1rem;
+        }
+        
+        .screenshot-caption p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        .features-section {
+            background: rgba(25, 25, 112, 0.15);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #264dfc;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(25, 25, 112, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(38, 77, 252, 0.2);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: #264dfc;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        .tech-stack {
+            margin-bottom: 5rem;
+        }
+        
+        .tech-stack h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #264dfc;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 15px rgba(38, 77, 252, 0.3);
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .tech-icon {
+            text-align: center;
+            background: rgba(25, 25, 112, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(25, 25, 112, 0.5);
+            transition: all 0.3s ease;
+            width: 150px;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(38, 77, 252, 0.2);
+        }
+        
+        .tech-icon i {
+            font-size: 3.5rem;
+            color: #264dfc;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-icon p {
+            font-size: 1.4rem;
+            color: white;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            background: #264dfc;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(38, 77, 252, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .features-section {
+                padding: 3rem;
+            }
+            
+            .tech-icon {
+                width: 120px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Calden</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="peer-tutoring-section">
+        <div class="project-showcase">
+            <div class="project-header">
+                <h1>Peer Tutoring Mobile App</h1>
+                <p>An Android application developed to connect students for peer-to-peer tutoring sessions at DUT, featuring tutor availability scheduling, resource sharing, and a dual rating system.</p>
+            </div>
+            
+            <!-- Tutor Experience Section -->
+            <div class="flow-section">
+                <h2>Tutor Experience Flow</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-card">
+                        <img src="10.jpg" alt="Welcome Screen" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Welcome Screen</h3>
+                            <p>Initial landing page with motivational quote about knowledge sharing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="10.5.jpg" alt="Login Screen" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Login Screen</h3>
+                            <p>Secure login for returning tutors with DUT email authentication</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="11.jpg" alt="Sign Up Screen" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Tutor Registration</h3>
+                            <p>Comprehensive sign-up process with role selection and academic details</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="12.jpg" alt="Tutor Profile" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Tutor Profile Setup</h3>
+                            <p>Section for tutors to describe their experience and set hourly rates</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="13.jpg" alt="Availability Management" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Availability Management</h3>
+                            <p>Interactive interface for tutors to set their available time slots</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="14.jpg" alt="Tutor Dashboard" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Tutor Dashboard</h3>
+                            <p>Main hub with access to all tutor-specific features and functions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="15.jpg" alt="Resource Upload" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Resource Upload</h3>
+                            <p>Interface for tutors to share educational materials with students</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tutee Experience Section -->
+            <div class="flow-section">
+                <h2>Tutee Experience Flow</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-card">
+                        <img src="17.jpg" alt="Tutee Dashboard" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Tutee Dashboard</h3>
+                            <p>Personalized dashboard showing tutor availability and quick access to features</p>
+                        </div>
+                    </div>
+
+                   <div class="screenshot-card">
+                        <img src="16.jpg" alt="Feedback Form" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Feedback System</h3>
+                            <p>Rate tutors and provide feedback after sessions</p>
+                        </div>
+                    </div>
+
+
+                     <div class="screenshot-card">
+                        <img src="18.jpg" alt="Download Resources" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Resource Library</h3>
+                            <p>Access study materials organized by faculty and academic year</p>
+                        </div>
+                    </div>
+
+
+                     <div class="screenshot-card">
+                        <img src="19.jpg" alt="TutorBot Assistant" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>TutorBot Assistant</h3>
+                            <p>AI chatbot to help with common questions and navigation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="20.jpg" alt="Find Tutor" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Find a Tutor</h3>
+                            <p>Browse and search for tutors by faculty, course, and availability</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="21.jpg" alt="Tutor Profile" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Tutor Details</h3>
+                            <p>View tutor details, ratings, and available time slots</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="22.jpg" alt="Session Booked" class="screenshot-img">
+                        <div class="screenshot-caption">
+                            <h3>Session Confirmation</h3>
+                            <p>Confirmation screen after successfully booking a tutoring session</p>
+                        </div>
+                    </div>
+                
+                
+                </div>
+            </div>
+            
+            <!-- Combined Features Section -->
+            <div class="features-section">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Availability Scheduling</h3>
+                        <p>Tutors can set available time slots, tutees can view and book sessions.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-file-upload"></i>
+                        <h3>Resource Sharing</h3>
+                        <p>Tutors upload study materials, tutees can download by faculty/course.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-star-half-alt"></i>
+                        <h3>Dual Rating System</h3>
+                        <p>Both tutors and tutees can rate each other after sessions.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>TutorBot Assistant</h3>
+                        <p>AI-powered assistant to help with navigation and common questions.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h3>Tutor Discovery</h3>
+                        <p>Advanced search and filtering to find the perfect tutor.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Session Booking</h3>
+                        <p>Easy booking system with instant confirmation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <h2>Technology Stack</h2>
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <i class="fab fa-android"></i>
+                        <p>Android Studio</p>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-java"></i>
+                        <p>Java</p>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML/CSS</p>
+                    </div>
+                </div>
+            </div>
+            
+            <center>
+                <a href="projects.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+            </center>
+        </div>
+    </section>
+</body>
+</html>
